@@ -301,6 +301,7 @@ class ShareesAPIController extends OCSController {
 
 		$searchResult = new SearchResult();
 		foreach ($this->searchResultTypeMap as $int => $str) {
+			$searchResult->addResultSet(new SearchResultType($str), [], []);
 			foreach ($top5 as $x) {
 				if ($x['value']['shareType'] === $int) {
 					$searchResult->addResultSet(new SearchResultType($str), [], [$x]);
